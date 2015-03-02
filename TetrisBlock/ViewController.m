@@ -8,6 +8,13 @@
 
 #import "ViewController.h"
 #import "SingleBlock.h"
+#import "BlockI.h"
+#import "BlockJ.h"
+#import "BlockL.h"
+#import "BlockO.h"
+#import "BlockS.h"
+#import "BlockZ.h"
+#import "BlockT.h"
 
 /*
  Launch the app and then tap on the display. The square that is displayed will start moving
@@ -18,11 +25,13 @@
 @interface ViewController () {
     CGPoint blockInitCenter;
     NSInteger blockWidth;
+    CGRect frame;
 }
 
 @property(nonatomic) UITapGestureRecognizer *tapGesture;
 @property(nonatomic) SingleBlock *squareShape;
-@property(nonatomic) SingleBlock *squareShape2;
+@property(nonatomic) Shape *shape;
+
 @property BOOL inMotion;
 @property(nonatomic) UISwipeGestureRecognizer *rightSwipe;
 @property(nonatomic) UIView *blockView;
@@ -36,6 +45,49 @@ const NSInteger widthInBlocks = 10;
 
 @implementation ViewController
 
+- (IBAction)IButtonPushed:(UIButton *)sender {
+    [self.shape removeFromSuperview];
+    self.shape = [[BlockI alloc] initWithFrame:frame];
+    [self.shape setBackgroundColor:[UIColor whiteColor]];
+    [self.blockView addSubview:self.shape];
+}
+- (IBAction)JButtonPushed:(UIButton *)sender {
+    [self.shape removeFromSuperview];
+    self.shape = [[BlockJ alloc] initWithFrame:frame];
+    [self.shape setBackgroundColor:[UIColor whiteColor]];
+    [self.blockView addSubview:self.shape];
+}
+- (IBAction)LButtonPushed:(UIButton *)sender {
+    [self.shape removeFromSuperview];
+    self.shape = [[BlockL alloc] initWithFrame:frame];
+    [self.shape setBackgroundColor:[UIColor whiteColor]];
+    [self.blockView addSubview:self.shape];
+}
+- (IBAction)OButtonPushed:(UIButton *)sender {
+    [self.shape removeFromSuperview];
+    self.shape = [[BlockO alloc] initWithFrame:frame];
+    [self.shape setBackgroundColor:[UIColor whiteColor]];
+    [self.blockView addSubview:self.shape];
+}
+- (IBAction)SButtonPushed:(UIButton *)sender {
+    [self.shape removeFromSuperview];
+    self.shape = [[BlockS alloc] initWithFrame:frame];
+    [self.shape setBackgroundColor:[UIColor whiteColor]];
+    [self.blockView addSubview:self.shape];
+}
+- (IBAction)TButtonPushed:(UIButton *)sender {
+    [self.shape removeFromSuperview];
+    self.shape = [[BlockT alloc] initWithFrame:frame];
+    [self.shape setBackgroundColor:[UIColor whiteColor]];
+    [self.blockView addSubview:self.shape];
+}
+- (IBAction)ZButtonPushed:(UIButton *)sender {
+    [self.shape removeFromSuperview];
+    self.shape = [[BlockZ alloc] initWithFrame:frame];
+    [self.shape setBackgroundColor:[UIColor whiteColor]];
+    [self.blockView addSubview:self.shape];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -45,21 +97,19 @@ const NSInteger widthInBlocks = 10;
     
     NSInteger width = blockWidth, height = width;
     
-    CGRect frame = CGRectMake(margins, 50, width, height);
-    self.squareShape = [[SingleBlock alloc] initWithFrame:frame];
-    [self.squareShape setBackgroundColor:[UIColor clearColor]];
-    blockInitCenter = self.squareShape.center;
     
-    self.blockView = [[UIView alloc] initWithFrame: self.squareShape.frame];
-    [self.blockView addSubview:self.squareShape];
+    frame = CGRectMake(margins, 50, width, height);
+    
+    self.shape = [[BlockI alloc] initWithFrame:frame];
+    [self.shape setBackgroundColor:[UIColor clearColor]];
+    
+    blockInitCenter = self.shape.center;
+    
+    self.blockView = [[UIView alloc] initWithFrame: self.shape.frame];
+    [self.blockView addSubview:self.shape];
     
     [self.view addSubview:self.blockView];
-    
-    CGRect frame2 = CGRectMake(blockWidth + margins, 50, width, height);
-    self.squareShape2 = [[SingleBlock alloc] initWithFrame:frame2];
-    [self.squareShape2 setBackgroundColor:[UIColor clearColor]];
-    
-    [self.blockView addSubview:self.squareShape2];
+
     
     self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [self.view addGestureRecognizer:self.tapGesture];

@@ -7,11 +7,22 @@
 //
 
 #import "Shape.h"
+#import "SingleBlock.h"
+
+@interface Shape (){
+    
+}
+
+@end
 
 @implementation Shape
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+}
+
++(Shape *) initWithFrame: (CGRect *) frame andColor: (UIColor *) color{
+    return nil;
 }
 
 

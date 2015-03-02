@@ -119,6 +119,7 @@
 				3EC2EC081A9B9D8F004A4433 /* SingleBlock.h */,
 				3EC2EC091A9B9D8F004A4433 /* SingleBlock.m */,
 				84F7925B1A9C4EFE00F5BDBB /* Shape.h */,
+				84F7925C1A9C4EFE00F5BDBB /* Shape.m */,
 				84F7925E1A9C506600F5BDBB /* BlockI.h */,
 				84F7925F1A9C506600F5BDBB /* BlockI.m */,
 				84F792611A9C507300F5BDBB /* BlockJ.h */,
@@ -133,7 +134,6 @@
 				84F7926E1A9C50A800F5BDBB /* BlockT.m */,
 				84F792701A9C50BE00F5BDBB /* BlockZ.h */,
 				84F792711A9C50BE00F5BDBB /* BlockZ.m */,
-				84F7925C1A9C4EFE00F5BDBB /* Shape.m */,
 			);
 			path = TetrisBlock;
 			sourceTree = "<group>";

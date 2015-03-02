@@ -8,14 +8,19 @@
 
 #import "SingleBlock.h"
 
+@interface SingleBlock ()
+
+@property (nonatomic) UIBezierPath * path;
+
+@end
+
 @implementation SingleBlock
 
 -(void) drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-    UIBezierPath *path = [[UIBezierPath alloc] init];
-    [[UIColor orangeColor] setStroke];
-    path.lineWidth = 1.0;
+    self.path = [[UIBezierPath alloc] init];
+    self.path.lineWidth = 1.0;
     
     NSInteger radius = 5;
     
@@ -31,36 +36,43 @@
     
     CGPoint topLeft = CGPointMake(origin.x + radius, origin.y);
     
-    [path moveToPoint: topLeft];
+    [self.path moveToPoint: topLeft];
     
     
     CGPoint topRight = CGPointMake(origin.x + size.width - radius, origin.y);
     CGPoint topRightCenter = CGPointMake( topRight.x, topRight.y + radius);
-    [path addLineToPoint: topRight];
-    [path addArcWithCenter:topRightCenter radius:radius startAngle: - M_PI / 2.0 endAngle: 0  clockwise:YES];
+    [self.path addLineToPoint: topRight];
+    [self.path addArcWithCenter:topRightCenter radius:radius startAngle: - M_PI / 2.0 endAngle: 0  clockwise:YES];
     
     CGPoint bottomRight = CGPointMake(origin.x + size.width, origin.x + size.height - radius);
     CGPoint bottomRightCenter = bottomRight; bottomRightCenter.x -= radius;
-    [path addLineToPoint: bottomRight];
-    [path addArcWithCenter:bottomRightCenter radius:radius startAngle: 0 endAngle:M_PI /2.0 clockwise:YES];
+    [self.path addLineToPoint: bottomRight];
+    [self.path addArcWithCenter:bottomRightCenter radius:radius startAngle: 0 endAngle:M_PI /2.0 clockwise:YES];
     
     CGPoint bottomLeft = CGPointMake(origin.x + radius, origin.x + size.height);
-    [path addLineToPoint: bottomLeft];
+    [self.path addLineToPoint: bottomLeft];
     CGPoint bottomLeftCenter = bottomLeft; bottomLeftCenter.y -= radius;
-    [path addArcWithCenter:bottomLeftCenter radius:radius startAngle: M_PI / 2.0 endAngle: M_PI clockwise:YES];
-    [path stroke];
+    [self.path addArcWithCenter:bottomLeftCenter radius:radius startAngle: M_PI / 2.0 endAngle: M_PI clockwise:YES];
+    [self.path stroke];
     
     topLeft.x -= radius;
     topLeft.y += radius;
-    [path addLineToPoint: topLeft];
+    [self.path addLineToPoint: topLeft];
     CGPoint topLeftCenter = topLeft; topLeftCenter.x += radius;
-    [path addArcWithCenter:topLeftCenter radius:radius startAngle: M_PI endAngle: M_PI + M_PI / 2.0 clockwise:YES];
+    [self.path addArcWithCenter:topLeftCenter radius:radius startAngle: M_PI endAngle: M_PI + M_PI / 2.0 clockwise:YES];
     
-    [[UIColor orangeColor] setFill];
-    [[UIColor blackColor] setStroke];
+    //[[UIColor orangeColor] setFill];
+    [[UIColor whiteColor] setStroke];
     
-    [path fill];
-    [path stroke];
+    //[self.path fill];
+    [self.path stroke];
 }
 
+-(void) setColor:(UIColor *)color{
+    [color setFill];
+    
+    [self.path fill];
+    
+    [self setNeedsDisplay];
+}
 @end

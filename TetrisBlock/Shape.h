@@ -11,6 +11,7 @@
 @interface Shape : UIView
 
 - (void)drawRect:(CGRect)rect;
++(Shape *) initWithFrame: (CGRect *) frame andColor: (UIColor *) color;
 
 
 @end

@@ -11,5 +11,7 @@
 @interface BlockI : Shape
 
 - (void)drawRect:(CGRect)rect;
++(BlockI *) initWithFrame: (CGRect *) frame andColor: (UIColor *) color;
+
 
 @end
