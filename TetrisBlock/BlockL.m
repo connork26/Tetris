@@ -28,7 +28,7 @@
     CGSize size = rect.size;
     CGPoint origin = rect.origin;
  
-    CGFloat blockSize = size.width;
+    CGFloat blockSize = size.width/3;
  
     CGRect frame1 = CGRectMake(origin.x, origin.y + blockSize, blockSize, blockSize);
     CGRect frame2 = CGRectMake(origin.x + blockSize, origin.y + blockSize, blockSize, blockSize);
@@ -40,6 +40,12 @@
     self.square2 = [[SingleBlock alloc] initWithFrame:frame2];
     self.square3 = [[SingleBlock alloc] initWithFrame:frame3];
     self.square4 = [[SingleBlock alloc] initWithFrame:frame4];
+    
+    [self.square1 setColor:[UIColor orangeColor]];
+    [self.square2 setColor:[UIColor orangeColor]];
+    [self.square3 setColor:[UIColor orangeColor]];
+    [self.square4 setColor:[UIColor orangeColor]];
+
  
     [self addSubview:self.square1];
     [self addSubview:self.square2];

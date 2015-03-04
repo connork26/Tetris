@@ -11,6 +11,7 @@
 @interface SingleBlock ()
 
 @property (nonatomic) UIBezierPath * path;
+@property (nonatomic) UIColor * blockColor;
 
 @end
 
@@ -61,18 +62,18 @@
     CGPoint topLeftCenter = topLeft; topLeftCenter.x += radius;
     [self.path addArcWithCenter:topLeftCenter radius:radius startAngle: M_PI endAngle: M_PI + M_PI / 2.0 clockwise:YES];
     
-    //[[UIColor orangeColor] setFill];
+    [self.blockColor setFill];
     [[UIColor whiteColor] setStroke];
     
-    //[self.path fill];
+    [self.path fill];
     [self.path stroke];
 }
 
--(void) setColor:(UIColor *)color{
-    [color setFill];
+-(void) setColor:(UIColor *)inColor{
+    self.blockColor = inColor;
     
-    [self.path fill];
     
-    [self setNeedsDisplay];
+//    [[UIColor blueColor] setFill];
+//    [self.path fill];
 }
 @end

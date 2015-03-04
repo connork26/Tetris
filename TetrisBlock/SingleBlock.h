@@ -11,6 +11,6 @@
 
 @interface SingleBlock : UIView
 
--(void) setColor: (UIColor *) color;
+-(void) setColor: (UIColor *) inColor;
 
 @end

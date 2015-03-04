@@ -51,25 +51,22 @@
     self.square4 = [[SingleBlock alloc] initWithFrame:rect4];
     
     
-    [self addSubview:self.square1];
-    [self addSubview:self.square2];
-    [self addSubview:self.square3];
-    [self addSubview:self.square4];
+    [self.square1 setColor:[UIColor cyanColor]] ;
+    [self.square2 setColor:[UIColor cyanColor]];
+    [self.square3 setColor:[UIColor cyanColor]];
+    [self.square4 setColor:[UIColor cyanColor]];
+
     
     [self.square1 setBackgroundColor:[UIColor whiteColor]];
     [self.square2 setBackgroundColor:[UIColor whiteColor]];
     [self.square3 setBackgroundColor:[UIColor whiteColor]];
     [self.square4 setBackgroundColor:[UIColor whiteColor]];
     
-    [self.square1 setColor:[UIColor colorWithRed:67 green:198 blue:219 alpha:0]];
-    [self.square2 setColor:[UIColor colorWithRed:67 green:198 blue:219 alpha:0]];
-    [self.square3 setColor:[UIColor colorWithRed:67 green:198 blue:219 alpha:0]];
-    [self.square4 setColor:[UIColor colorWithRed:67 green:198 blue:219 alpha:0]];
-}
-
-+(BlockI *) initWithFrame: (CGRect *) frame andColor: (UIColor *) inColor{
-    self->color = inColor;
-
+    
+    [self addSubview:self.square1];
+    [self addSubview:self.square2];
+    [self addSubview:self.square3];
+    [self addSubview:self.square4];
 }
 
 
